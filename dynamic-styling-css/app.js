@@ -6,6 +6,7 @@ new Vue({
     attachBlue: false,
     color: "green",
     color2: "grey",
+    
     width: 50,
   },
   computed: {
