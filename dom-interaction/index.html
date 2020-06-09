@@ -15,14 +15,14 @@
   <body>
     <div id="app" v-on:mousemove="updateCoordinates">
       <h1 v-once>{{title}}</h1>
-      <p id="title">{{sayHello()}} - <a v-bind:href="link">Google</a></p>
+      <p id="title">{{sayHello()}} - <a :href="link">Google</a></p>
       <p>vue js is pretty cool - {{name}} age: {{age}}</p>
       <p>age times 3 is {{ageMultiply()}}</p>
       <p>random number : {{randomNum()}}</p>
       <hr />
       <div>
-        <button v-on:click="increase(1, $event)">Click me</button>
-        <button v-on:click="increase(2, $event)">Click me</button>
+        <button @click="increase(1, $event)">Click me</button>
+        <button @click="increase(2, $event)">Click me</button>
         <p>
           Counter: {{counter}}
         </p>
@@ -31,24 +31,40 @@
       <hr />
       <p>
         Coordinates: {{ x }} / {{ y }}
-        <span v-on:mousemove.stop=""> Dead Spot</span>
+        <span @mousemove.stop=""> Dead Spot</span>
       </p>
-      <input type="text" v-on:keyup.enter.space="alertMe" />
-      <button v-on:click="alertMe">Click me</button>
-      <input type="text" v-on:keydown="storeKey" />
-      <input type="text" v-on:keydown.enter="enterPressed" />
+      <input type="text" @keyup.enter.space="alertMe" />
+      <button @click="alertMe">Click me</button>
+      <input type="text" @keydown="storeKey" />
+      <input type="text" @keydown.enter="enterPressed" />
       <p>{{keyPressed}}</p>
       <hr />
       <input type="text" v-model="name" />
       <p v-html="finishedLink"></p>
       <hr />
-      <button v-on:click="counter++">Increase</button>
-      <button v-on:click="counter--">Decrease</button>
-      <button v-on:click="secondCounter++">Increase Second</button>
+      <button @click="counter++">Increase</button>
+      <button @click="counter--">Decrease</button>
+      <button @click="secondCounter++">Increase Second</button>
       <p>
         Counter: {{counter}} | {{secondCounter}}
       </p>
       <p>Result: {{ result() }} | {{ output }}</p>
+      <hr />
+      <div>
+        <p>Computed & Watch Exercises</p>
+        <p>
+          Current Value: {{value}}
+        </p>
+        <button @click="value += 5">Add 5</button>
+        <button @click="value += 1">Add 1</button>
+        <p>{{resultExercise}}</p>
+      </div>
+      <div>
+        <p>Change Watch Time</p>
+        <input type="text" placeholder="time in seconds" v-model="timer" />
+        <p>{{value}}</p>
+        <p>user decided time: {{timer * 1000}}</p>
+      </div>
     </div>
 
     <script src="vue.js"></script>
