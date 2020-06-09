@@ -26,7 +26,7 @@
         <p>
           Counter: {{counter}}
         </p>
-        <p>Result: {{ result}}</p>
+        <p>Result: {{ result()}}</p>
       </div>
       <hr />
       <p>
@@ -42,8 +42,13 @@
       <input type="text" v-model="name" />
       <p v-html="finishedLink"></p>
       <hr />
-      <button v-on:click="increase(1, $event)">Click me</button>
-      <button v-on:click="increase(2, $event)">Click me</button>
+      <button v-on:click="counter++">Increase</button>
+      <button v-on:click="counter--">Decrease</button>
+      <button v-on:click="secondCounter++">Increase Second</button>
+      <p>
+        Counter: {{counter}} | {{secondCounter}}
+      </p>
+      <p>Result: {{ result() }} | {{ output }}</p>
     </div>
 
     <script src="vue.js"></script>
