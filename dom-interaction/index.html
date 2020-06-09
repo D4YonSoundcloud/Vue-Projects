@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app" v-on:mousemove="updateCoordinates">
+      <h1 v-once>{{title}}</h1>
+      <p id="title">{{sayHello()}} - <a v-bind:href="link">Google</a></p>
+      <p>vue js is pretty cool - {{name}} age: {{age}}</p>
+      <p>age times 3 is {{ageMultiply()}}</p>
+      <p>random number : {{randomNum()}}</p>
+      <hr />
+      <div>
+        <button v-on:click="increase(1, $event)">Click me</button>
+        <button v-on:click="increase(2, $event)">Click me</button>
+        <p>
+          Counter: {{counter}}
+        </p>
+        <p>Result: {{ result}}</p>
+      </div>
+      <hr />
+      <p>
+        Coordinates: {{ x }} / {{ y }}
+        <span v-on:mousemove.stop=""> Dead Spot</span>
+      </p>
+      <input type="text" v-on:keyup.enter.space="alertMe" />
+      <button v-on:click="alertMe">Click me</button>
+      <input type="text" v-on:keydown="storeKey" />
+      <input type="text" v-on:keydown.enter="enterPressed" />
+      <p>{{keyPressed}}</p>
+      <hr />
+      <input type="text" v-model="name" />
+      <p v-html="finishedLink"></p>
+      <hr />
+      <button v-on:click="increase(1, $event)">Click me</button>
+      <button v-on:click="increase(2, $event)">Click me</button>
+    </div>
+
+    <script src="vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
