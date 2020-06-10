@@ -58,7 +58,14 @@ new Vue({
         this.playerHealth -= damage;
         this.specialAttackCounter--;
       } else {
-        this.playerHealth -= this.calculateDamage(2, 11);
+        damage = this.calculateDamage(2, 11);
+        this.turns.unshift({
+          isPlayer: false,
+          isSpecialTurn: false,
+          isHealing: false,
+          text: "Monster hits player for " + damage + "hp",
+        });
+        this.playerHealth -= damage;
       }
     },
     heal() {
